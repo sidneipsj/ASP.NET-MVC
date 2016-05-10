@@ -28,3 +28,33 @@ c:\users\sidnei.bella-rpc\documents\visual studio 2013\Projects\DevMedia.Forum\D
 c:\users\sidnei.bella-rpc\documents\visual studio 2013\Projects\DevMedia.Forum\DevMedia.Forum\bin\Newtonsoft.Json.xml
 c:\users\sidnei.bella-rpc\documents\visual studio 2013\Projects\DevMedia.Forum\DevMedia.Forum\obj\Debug\DevMedia.Forum.dll
 c:\users\sidnei.bella-rpc\documents\visual studio 2013\Projects\DevMedia.Forum\DevMedia.Forum\obj\Debug\DevMedia.Forum.pdb
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\obj\Debug\DevMedia.Forum.csprojResolveAssemblyReference.cache
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\obj\Debug\DevMedia.Forum.dll
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\obj\Debug\DevMedia.Forum.pdb
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\bin\DevMedia.Forum.dll.config
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\bin\DevMedia.Forum.dll
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\bin\DevMedia.Forum.pdb
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\bin\Antlr3.Runtime.dll
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\bin\EntityFramework.dll
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\bin\EntityFramework.SqlServer.dll
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\bin\Newtonsoft.Json.dll
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\bin\System.Web.Helpers.dll
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\bin\System.Web.Mvc.dll
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\bin\System.Web.Optimization.dll
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\bin\System.Web.Razor.dll
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\bin\System.Web.WebPages.Deployment.dll
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\bin\System.Web.WebPages.dll
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\bin\System.Web.WebPages.Razor.dll
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\bin\WebGrease.dll
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\bin\EntityFramework.xml
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\bin\EntityFramework.SqlServer.xml
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\bin\System.Web.Helpers.xml
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\bin\System.Web.Mvc.xml
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\bin\System.Web.Optimization.xml
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\bin\System.Web.Razor.xml
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\bin\System.Web.WebPages.xml
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\bin\System.Web.WebPages.Deployment.xml
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\bin\System.Web.WebPages.Razor.xml
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\bin\Antlr3.Runtime.pdb
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\EntityFrameworkProjects\DevMedia.Forum\DevMedia.Forum\bin\Newtonsoft.Json.xml

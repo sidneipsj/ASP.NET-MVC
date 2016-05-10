@@ -1,9 +1,11 @@
-﻿using DevMedia.Forum.Repositorio;
+﻿using DevMedia.Forum.Models;
+using DevMedia.Forum.Repositorio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace DevMedia.Forum.Controllers
 {
@@ -20,6 +22,7 @@ namespace DevMedia.Forum.Controllers
         [HttpPost]
         public ActionResult Login(String login, String senha)
         {
+            autenticarUsuario = AutenticarUsuario.autenticarUsuario(login, senha);
             if (autenticarUsuario != null)
             {
                 Session.Add("usuario", autenticarUsuario);
@@ -36,7 +39,7 @@ namespace DevMedia.Forum.Controllers
         public ActionResult CadastrarUsuario(usuario usuario)
         {
 
-            BD_FORUMEntities ctx = new BD_FORUMEntities();
+            DB_FORUMEntities ctx = new DB_FORUMEntities();
 
             var senhaCriptografada = FormsAuthentication.HashPasswordForStoringInConfigFile(usuario.senha, "MD5");
 
