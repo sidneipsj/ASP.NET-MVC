@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NorthwindModelStoreContainer" CdmEntityContainer="NorthwindEntities">
+    <EntitySetMapping Name="SEGMENTOS">
+      <EntityTypeMapping TypeName="NorthwindModel.SEGMENTO">
+        <MappingFragment StoreEntitySet="SEGMENTOS">
+          <ScalarProperty Name="SEG_ID" ColumnName="SEG_ID" />
+          <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+          <ScalarProperty Name="APAGADO" ColumnName="APAGADO" />
+          <ScalarProperty Name="DTALTERACAO" ColumnName="DTALTERACAO" />
+          <ScalarProperty Name="OPERADOR" ColumnName="OPERADOR" />
+          <ScalarProperty Name="DTAPAGADO" ColumnName="DTAPAGADO" />
+          <ScalarProperty Name="OPERCADASTRO" ColumnName="OPERCADASTRO" />
+          <ScalarProperty Name="DTCADASTRO" ColumnName="DTCADASTRO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

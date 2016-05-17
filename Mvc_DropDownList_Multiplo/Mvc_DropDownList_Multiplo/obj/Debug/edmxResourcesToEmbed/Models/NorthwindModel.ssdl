@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NorthwindModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="SEGMENTOS">
+    <Key>
+      <PropertyRef Name="SEG_ID" />
+    </Key>
+    <Property Name="SEG_ID" Type="int" Nullable="false" />
+    <Property Name="DESCRICAO" Type="varchar" MaxLength="58" Nullable="false" />
+    <Property Name="APAGADO" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="DTALTERACAO" Type="smalldatetime" />
+    <Property Name="OPERADOR" Type="varchar" MaxLength="25" />
+    <Property Name="DTAPAGADO" Type="smalldatetime" />
+    <Property Name="OPERCADASTRO" Type="varchar" MaxLength="25" />
+    <Property Name="DTCADASTRO" Type="smalldatetime" />
+  </EntityType>
+  <EntityContainer Name="NorthwindModelStoreContainer">
+    <EntitySet Name="SEGMENTOS" EntityType="Self.SEGMENTOS" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
