@@ -21,9 +21,16 @@ namespace Mvc_DropDownList_Multiplo.Controllers
                 }).ToList();
 
                 ViewBag.Segmentos = new MultiSelectList(segmentos, "SegmentoID", "SegmentoName");
+                ViewBag.Segmentos = new MultiSelectList(segmentos, "SegmentoID", "SegmentoName",new[]{1,3,7});
                 return View();
                                  
             }
+        }
+
+        [HttpPost]
+        public ActionResult Selecao(int[] categoryId)
+        {
+            return View();
         }
     }
 }

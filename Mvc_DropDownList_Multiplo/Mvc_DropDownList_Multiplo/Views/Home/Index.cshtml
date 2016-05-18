@@ -16,13 +16,25 @@
         <h2>Sidnei .Net - DropDownList com seleção múltipla</h2>
         <hr />
         <div>
-            DropDownList - multiple
-            <br />
-            @Html.DropDownList("SegmentoId", (MultiSelectList)ViewBag.Segmentos, new { multiple = "multiple" })
-            <br />
-            ListBox
-            <br />
-            @Html.ListBox("SegmentoId", (MultiSelectList)ViewBag.Segmentos)
+            @using (Html.BeginForm("Selecao", "Home", FormMethod.Post, new { id = "TheForm" }))
+            {
+                <text>DropDownList - multiple</text>
+
+                <br />
+
+                @Html.DropDownList("SegmentoID", (MultiSelectList)ViewBag.Segmentos, new { multiple = "multiple" })
+
+                <br />
+
+                <text>ListBox</text>
+
+                <br />
+
+                @Html.ListBox("SegmentoID", (MultiSelectList)ViewBag.Segmentos, new { size = 8 })
+
+                <input type="submit" value="Enviar" />
+
+            }
         </div>
     </div>
 </body>
