@@ -181,6 +181,7 @@
     </Content>
     <Content Include="Models\ModelForumTech.edmx.diagram">
       <DependentUpon>ModelForumTech.edmx</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Models\ModelForumTech.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -215,6 +216,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Login\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\usuarios\Create.cshtml" />
     <Content Include="Views\usuarios\Delete.cshtml" />
     <Content Include="Views\usuarios\Details.cshtml" />
@@ -224,6 +226,8 @@
     <Content Include="Views\Topico\Create.cshtml" />
     <Content Include="Views\Postagem\Create.cshtml" />
     <Content Include="Views\Postagem\Index.cshtml" />
+=======
+>>>>>>> fd44b46a213c449fde28313844062b17055ebe19
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

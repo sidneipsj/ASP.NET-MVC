@@ -1,5 +1,8 @@
 ﻿@using DevMedia.Forum.Repositorio
+<<<<<<< HEAD
 
+=======
+>>>>>>> fd44b46a213c449fde28313844062b17055ebe19
 <!DOCTYPE html>
 
 <html>
@@ -7,10 +10,18 @@
 <head>
 
     <meta charset="utf-8" />
+<<<<<<< HEAD
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>@ViewBag.Title - Fórum Tech</title>
+=======
+    @* Nesta linha foi definida a tag meta para o viewport, desta forma o Bootstrap pode identificar a resolução e o tipo de dispositivo que está acessando a página e assim tornar a mesma responsiva. *@
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>@ViewBag.Title - Fórum Tech</title>
+    @* · Linhas 8 e 9: Aqui é utilizado o recurso de renderização de scripts e estilos no browser. Estes arquivos encontram-se nas pastas Content e Scripts. *@
+>>>>>>> fd44b46a213c449fde28313844062b17055ebe19
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -28,7 +39,11 @@
                 </button>
                 @Html.ActionLink("Fórum Tech", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
 
+<<<<<<< HEAD
             </div>
+=======
+            </di  v>
+>>>>>>> fd44b46a213c449fde28313844062b17055ebe19
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
 
@@ -46,11 +61,19 @@
                         var usuarioLogado = AutenticarUsuario.retornarUsuarioDaSessao();
                         if (usuarioLogado == null)
                         {
+<<<<<<< HEAD
                              <label style = "color:White" > @msgVisitante </label>
                         }
                         else
                         {
                              <label style = "color:White" > @usuarioLogado.nome </label>
+=======
+                            <label style="color:White"> @msgVisitante </label>
+                        }
+                        else
+                        {
+                            <label style="color:White"> @usuarioLogado.nome </label>
+>>>>>>> fd44b46a213c449fde28313844062b17055ebe19
                         }
                     }
                     <input type="submit" value="Entrar/Sair" class="btn btn-default" />

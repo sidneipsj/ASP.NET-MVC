@@ -15,9 +15,9 @@ namespace _020
         {
             //ColdWarm();
             //Cache();
-            //ComposingQuery();
+            ComposingQuery();
             //AutoCompiledQueries();
-            NoTrackingQueries();
+            //NoTrackingQueries();
 
             Console.ReadKey();
         }
