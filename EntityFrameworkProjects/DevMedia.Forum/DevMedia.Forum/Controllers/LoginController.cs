@@ -6,6 +6,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+<<<<<<< HEAD
+using DevMedia.Forum.Models;
+using HibernatingRhinos.Profiler.Appender.EntityFramework;
+=======
+>>>>>>> fd44b46a213c449fde28313844062b17055ebe19
 
 namespace DevMedia.Forum.Controllers
 {
@@ -26,7 +31,7 @@ namespace DevMedia.Forum.Controllers
             if (autenticarUsuario != null)
             {
                 Session.Add("usuario", autenticarUsuario);
-                return Redirect("/Posts/Index");
+                return Redirect("/Postagem/Index");
             }
             else
             {
@@ -38,6 +43,7 @@ namespace DevMedia.Forum.Controllers
         [HttpPost]
         public ActionResult CadastrarUsuario(usuario usuario)
         {
+            EntityFrameworkProfiler.Initialize();
 
             DB_FORUMEntities ctx = new DB_FORUMEntities();
 
