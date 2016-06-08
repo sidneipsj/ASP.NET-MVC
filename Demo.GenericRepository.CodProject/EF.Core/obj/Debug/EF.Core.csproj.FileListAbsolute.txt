@@ -1,0 +1,1 @@
+C:\Users\sidnei.BELLA-RPC\Documents\ASP.NET-MVC\Demo.GenericRepository.CodProject\EF.Core\obj\Debug\EF.Core.csprojResolveAssemblyReference.cache
