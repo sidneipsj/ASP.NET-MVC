@@ -1,1 +1,0 @@
-﻿alert(comum.nome);//Exibe o nome em um alerta do javascript
