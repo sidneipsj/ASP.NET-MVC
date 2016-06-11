@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
+using DevMedia.Forum.Models;
+using HibernatingRhinos.Profiler.Appender.EntityFramework;
 
 namespace DevMedia.Forum.Controllers
 {
@@ -35,8 +38,9 @@ namespace DevMedia.Forum.Controllers
         [HttpPost]
         public ActionResult CadastrarUsuario(usuario usuario)
         {
+            EntityFrameworkProfiler.Initialize();
 
-            BD_FORUMEntities ctx = new BD_FORUMEntities();
+            DB_FORUMEntities ctx = new DB_FORUMEntities();
 
             var senhaCriptografada = FormsAuthentication.HashPasswordForStoringInConfigFile(usuario.senha, "MD5");
 
