@@ -1,0 +1,287 @@
+﻿@model AdmConvenio.Models.Conveniados
+@{Layout = "~/Views/Shared/_Layout.cshtml";}
+
+<h2>Proposta de Adesão de Cartão</h2>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h2>Como proceder?</h2>
+        Para que o Cartão Bem Estar entre em contato com você, siga os passos abaixo e preencha o formulário.
+
+        Para solicitar o seu cartão bem estar continue o processo completando os dados de pagamento da taxa de adesão e aproveite todos os benefícios dos parceiros do Cartão em todo Brasil.
+    </div>
+</div>
+
+<div class='panel panel-primary dialog-panel le'>
+    <a href="~/Views/Conveniados/Cadastro.cshtml">~/Views/Conveniados/Cadastro.cshtml</a>
+    <div class='panel-heading'>
+        <h5>Proposta de Adesão de Cartão</h5>
+    </div>
+    <div class='panel-body'>
+        <form class='form-horizontal ' role='form'>
+            <div class='form-group'>
+                @*<label class='control-label col-md-2 col-md-offset-0' for='id_title'>Name</label>*@
+                <div class='col-md-10'>
+                    <div class='col-md-6 indent-small'>
+                        <div class='form-group internal'>
+                            <input class='form-control' id='id_last_name' placeholder='Nome Completo' type='text'>
+                        </div>
+                    </div>
+                    <div class='col-md-offset-0 col-md-2 indent-small' style="margin-left: 10px">
+                        <div class='form-group internal'>
+                            @Html.TextBoxFor(p => p.DtNascimento, new
+                            {
+                                @class = "form-control",
+                                placeholder = "Data de Nascimento",
+                                @type = "text",
+                                onfocus = "(this.type='date')"
+                            })
+                        </div>
+                    </div>
+
+                    <div class='col-md-offset-0 col-md-3 indent-small' style="margin-left: 10px">
+                        <div class='form-group internal'>
+                            @Html.TextBoxFor(p => p.Cpf, new
+                            {
+                                @class = "form-control",
+                                placeholder = "CPF",
+                            })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='form-group'>
+                <div class='col-md-10'>
+                    <div class='col-md-3'>
+                        <div class='form-group internal'>
+                            @Html.TextBoxFor(p => p.Rg, new
+                            {
+                                @class = "form-control",
+                                placeholder = "R.G.",
+                                @type = "text",
+                            })
+                        </div>
+                    </div>
+                    <div class='col-md-3' style="margin-left: 10px">
+                        <div class='form-group internal'>
+                            @Html.TextBoxFor(p => p.Cep, new
+                            {
+                                @class = "form-control",
+                                placeholder = "CEP",
+                                @type = "text",
+                            })
+                        </div>
+                    </div>
+
+                    <div class='col-md-1' style="margin-left: 10px">
+                        <div class='form-group internal'>
+                            @Html.DropDownListFor(u => u.Estado,
+                                new SelectList(Enum.GetValues(typeof(AdmConvenio.Models.Conveniados.Estados))),
+                                new
+                                {
+                                    @class = "form-control",
+                                    placeholder = "CEP",
+                                    @type = "text",
+                                }
+                                )
+                        </div>
+                    </div>
+
+                    <div class='col-md-3' style="margin-left: 10px">
+                        <div class='form-group internal'>
+                            @Html.TextBoxFor(p => p.Cidade, new
+                            {
+                                @class = "form-control",
+                                placeholder = "Cidade",
+                                @type = "text",
+                            })
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class='form-group'>
+                <div class='col-md-10'>
+                    <div class='col-md-2'>
+                        <div class='form-group internal'>
+                            @Html.TextBoxFor(p => p.Bairro, new
+                            {
+                                @class = "form-control",
+                                placeholder = "Bairro",
+                                @type = "text",
+                            })
+                        </div>
+                    </div>
+                    <div class='col-md-5' style="margin-left: 10px">
+                        <div class='form-group internal'>
+                            @Html.TextBoxFor(p => p.Endereco, new
+                            {
+                                @class = "form-control",
+                                placeholder = "Digite Seu Endereço",
+                                @type = "text",
+                            })
+                        </div>
+                    </div>
+
+                    <div class='col-md-1' style="margin-left: 10px">
+                        <div class='form-group internal'>
+                            @Html.TextBoxFor(u => u.Numero,
+                                new
+                                {
+                                    @class = "form-control",
+                                    placeholder = "Nº",
+                                    @type = "text",
+                                }
+                                )
+                        </div>
+                    </div>
+                    <div class='col-md-2' style="margin-left: 10px">
+                        <div class='form-group internal'>
+                            @Html.TextBoxFor(p => p.Complemento, new
+                            {
+                                @class = "form-control",
+                                placeholder = "Compemento",
+                                @type = "text",
+                            })
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class='form-group'>
+                <div class='col-md-10'>
+                    <div class='col-md-3'>
+                        <div class='form-group internal'>
+                            @Html.TextBoxFor(p => p.Telefone, new
+                            {
+                                @class = "form-control",
+                                placeholder = "Número de Telefone Fixo",
+                                @type = "text",
+                            })
+                        </div>
+                    </div>
+                    <div class='col-md-3' style="margin-left: 10px">
+                        <div class='form-group internal'>
+                            @Html.TextBoxFor(p => p.Celular, new
+                            {
+                                @class = "form-control",
+                                placeholder = "Número de Telefone Celular",
+                                @type = "text",
+                            })
+                        </div>
+                    </div>
+
+                    <div class='col-md-5' style="margin-left: 10px">
+                        <div class='form-group internal'>
+                            @Html.TextBoxFor(u => u.Email,
+                                new
+                                {
+                                    @class = "form-control",
+                                    placeholder = "Email",
+                                    @type = "text",
+                                }
+                                )
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h2>Informações de Dependentes</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class='form-group'>
+                <div class='col-md-12'>
+                    <div class='col-md-5'>
+                        <div class='form-group internal'>
+                            @Html.TextBoxFor(p => p.Rg, new
+                            {
+                                @class = "form-control",
+                                placeholder = "Nome Completo",
+                                @type = "text",
+                            })
+                        </div>
+                    </div>
+
+                    <div class='col-md-2' style="margin-left: 10px">
+                        <div class='form-group internal'>
+                            @Html.DropDownListFor(u => u.Estado,
+                                new SelectList(Enum.GetValues(typeof(AdmConvenio.Models.Conveniados.Dependentes))),
+                                new
+                                {
+                                    @class = "form-control",
+                                    placeholder = "Filho(a)",
+                                    @type = "text",
+                                }
+                                )
+                        </div>
+                    </div>
+
+                    @*testando aqui*@
+                    <div class='col-md-offset-0 col-md-2 indent-small' style="margin-left: 10px">
+                        <div class='form-group internal'>
+                            @Html.TextBoxFor(p => p.DtNascimento, new
+                            {
+                                @class = "form-control",
+                                placeholder = "Data de Nascimento",
+                                @type = "text",
+                                onfocus = "(this.type='date')"
+                            })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class='col-md-12'>
+                    <div class='col-md-3'>
+                        <div class='form-group internal'>
+                            @Html.TextBoxFor(p => p.Cidade, new
+                    {
+                        @class = "form-control",
+                        placeholder = "Número do CPF",
+                        @type = "text",
+                    })
+                        </div>
+                    </div>
+
+                    <div class='col-md-3' style="margin-left: 10px">
+                        <div class='form-group internal'>
+                            @Html.TextBoxFor(p => p.Cidade, new
+                    {
+                        @class = "form-control",
+                        placeholder = "Número do R.G.",
+                        @type = "text",
+                    })
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div class="form-group">
+                <div class="col-md-3">
+                    <button type="button" id="bt" class="btn btn-default" onclick="teste()">Adicionar Dependente</button>
+                </div>
+            </div>
+
+            <div class='form-group'>
+                <div class='col-lg-offset-7 col-md-3'>
+                    <button class='btn-lg btn-primary' type='submit'>Enviar Solicitação</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,41 @@
+﻿@model Mvc_DropDownList_Multiplo.Models.SEGMENTO
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h2>Sidnei .Net - DropDownList com seleção múltipla</h2>
+        <hr />
+        <div>
+            @using (Html.BeginForm("Selecao", "Home", FormMethod.Post, new { id = "TheForm" }))
+            {
+                <text>DropDownList - multiple</text>
+
+                <br />
+
+                @Html.DropDownList("SegmentoID", (MultiSelectList)ViewBag.Segmentos, new { multiple = "multiple" })
+
+                <br />
+
+                <text>ListBox</text>
+
+                <br />
+
+                @Html.ListBox("SegmentoID", (MultiSelectList)ViewBag.Segmentos, new { size = 8 })
+
+                <input type="submit" value="Enviar" />
+
+            }
+        </div>
+    </div>
+</body>
+</html>

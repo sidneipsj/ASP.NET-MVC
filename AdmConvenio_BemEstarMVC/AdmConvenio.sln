@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdmConvenio", "AdmConvenio\AdmConvenio.csproj", "{5568D116-F2B6-4CFC-A274-760C02659A8B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Back-End", "Back-End", "{8F801375-05BB-4ECC-99BE-35501020DD8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{E1330E8A-33B4-4172-809D-B8222F4A6C4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLHelperv2", "SQLHelperv2\SQLHelperv2.csproj", "{407D9C86-C7EF-4474-AF0F-604B4D3E6E42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantaoAPI", "PlantaoAPI\PlantaoAPI.csproj", "{024314D1-53CE-4D80-B028-37CCA6BB901A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5568D116-F2B6-4CFC-A274-760C02659A8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5568D116-F2B6-4CFC-A274-760C02659A8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5568D116-F2B6-4CFC-A274-760C02659A8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5568D116-F2B6-4CFC-A274-760C02659A8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1330E8A-33B4-4172-809D-B8222F4A6C4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1330E8A-33B4-4172-809D-B8222F4A6C4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1330E8A-33B4-4172-809D-B8222F4A6C4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1330E8A-33B4-4172-809D-B8222F4A6C4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{407D9C86-C7EF-4474-AF0F-604B4D3E6E42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{407D9C86-C7EF-4474-AF0F-604B4D3E6E42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{407D9C86-C7EF-4474-AF0F-604B4D3E6E42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{407D9C86-C7EF-4474-AF0F-604B4D3E6E42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{024314D1-53CE-4D80-B028-37CCA6BB901A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{024314D1-53CE-4D80-B028-37CCA6BB901A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{024314D1-53CE-4D80-B028-37CCA6BB901A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{024314D1-53CE-4D80-B028-37CCA6BB901A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E1330E8A-33B4-4172-809D-B8222F4A6C4E} = {8F801375-05BB-4ECC-99BE-35501020DD8E}
+		{407D9C86-C7EF-4474-AF0F-604B4D3E6E42} = {8F801375-05BB-4ECC-99BE-35501020DD8E}
+	EndGlobalSection
+EndGlobal
