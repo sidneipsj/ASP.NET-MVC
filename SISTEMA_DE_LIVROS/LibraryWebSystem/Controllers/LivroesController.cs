@@ -11,6 +11,7 @@ using LibraryWebSystem.Entidades;
 
 namespace LibraryWebSystem.Controllers
 {
+    [Authorize]
     public class LivroesController : Controller
     {
         private BibliotecaContext db = new BibliotecaContext();

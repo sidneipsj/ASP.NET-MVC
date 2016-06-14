@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using WebMatrix.WebData;
 
 namespace LibraryWebSystem
 {
@@ -13,6 +14,8 @@ namespace LibraryWebSystem
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            WebSecurity.InitializeDatabaseConnection("BibliotecaContext", "Usuario", "Id", "Nome", autoCreateTables: true);
         }
     }
 }

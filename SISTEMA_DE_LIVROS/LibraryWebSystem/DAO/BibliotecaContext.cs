@@ -13,12 +13,13 @@ namespace LibraryWebSystem.DAO
         public BibliotecaContext()
             : base("BibliotecaContext")
         {
-
+            //Database.SetInitializer<BibliotecaContext>(new DropCreateDatabaseIfModelChanges<BibliotecaContext>());
         }
 
         public DbSet<Autor> Autores { get; set; }
         public DbSet<Livro> Livros { get; set; }
         public DbSet<Editora> Editoras { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -27,6 +28,8 @@ namespace LibraryWebSystem.DAO
             modelBuilder.Entity<Autor>().ToTable("Autor");
             modelBuilder.Entity<Editora>().ToTable("Editora");
             modelBuilder.Entity<Livro>().ToTable("Livro");
+            modelBuilder.Entity<Usuario>().ToTable("Usuario");
+
 
         }
 

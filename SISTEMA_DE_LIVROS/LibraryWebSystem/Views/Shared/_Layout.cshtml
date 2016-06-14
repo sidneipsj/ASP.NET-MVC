@@ -23,6 +23,15 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Cadastro Editora", "Create", "Editora")</li>
                     <li>@Html.ActionLink("Livros", "Index", "Livroes")</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Deslogar", "Logout", "Login")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Autenticar", "Index", "Login")</li>
+                    }
+
                 </ul>
             </div>
         </div>
