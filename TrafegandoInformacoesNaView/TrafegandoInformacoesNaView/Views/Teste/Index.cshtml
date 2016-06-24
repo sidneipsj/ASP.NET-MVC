@@ -1,0 +1,44 @@
+﻿@model TrafegandoInformacoesNaView.Models.Pais
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<ul>
+    <li>@ViewBag.Categoria</li>
+    <li>@ViewData["Categoria"]</li>
+    <li>@TempData["Produto"]</li>
+    <li>@Session["Usuario"]</li>
+    <li>@Model.Nome</li>
+
+    <div style="padding: 80px;">
+        <h3>
+            Aplicação criada com o objetivo de demonstrar a conversão de
+            de objetos para o padrão JSON em Views do ASP.NET MVC.
+        </h3>
+    </div>
+
+    @section scripts{
+
+        <script type="text/javascript">
+
+        $(document).ready(function () {
+            exibirInformacoesPais(
+                @Html.Raw(Json.Encode(ViewBag.DadosBrasil)));
+        });
+
+        function exibirInformacoesPais(dadosPais) {
+            alert("País: " + dadosPais.Nome + "\n" +
+                  "Continente: " + dadosPais.Continente + "\n" +
+                  "Capital: " + dadosPais.Capital + "\n" +
+                  "Código Telefônico: " + dadosPais.CodigoTelefonico);
+        }
+
+        </script>
+
+    }
+
+</ul>
+

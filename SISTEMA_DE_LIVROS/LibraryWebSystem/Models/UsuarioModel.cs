@@ -17,7 +17,7 @@ namespace LibraryWebSystem.Models
         [Required]
         public string Senha { get; set; }
 
-         [Compare("Senha")]
+        [Compare("Senha")]
         public string ConfirmacaoSenha { get; set; }
     }
 }
