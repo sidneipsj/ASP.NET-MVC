@@ -20,5 +20,17 @@ function Mensagem(stringCss, mensagem) {
 }
 
 function Cadastrar() {
-    var dadosSerializados = $("formDados").serialize();
+    var dadosSerializados = $('#formDados').serialize();
+    $.ajax({
+        type: "POST",
+        url: "App/Cadastrar",
+        data: dadosSerializados,
+        success: function () {
+            Mensagem("success", "Cadastrado com Sucesso!");
+        },
+        error: function () {
+            Mensagem("danger", "Erro ao cadastrar!");
+        }
+
+    });
 }
