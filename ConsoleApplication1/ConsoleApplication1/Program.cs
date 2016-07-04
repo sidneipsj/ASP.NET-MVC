@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApplication1
 {
@@ -38,25 +36,51 @@ namespace ConsoleApplication1
 
             //string output = p.StandardOutput.ReadToEnd();
             #endregion
-            string CMD = "perl -e \" binmode *STDOUT; print pack 'H*','8C65E00F2D0B62C7702530CA0FBEB455C41525A31BFF15F132648D82674F121678648DBE13994FA0E3C569162B30B518CFB9F5E1FA02BEF11C49D5C4F61C60DC0A4C3900D671BD2F1EA34E77C2C6B94C771213556A06E79426514231D0C397BB0352368635672EDDC4595835E3E771E03DE99F668677C65028F204F7C9CB55B4B2EA44AE77C22BCF17DFCD9D9B1B597A9F24C6DAD52F088B2CFF27C7056E2E7360EE7D98ED32EF058B5636BCC80DF5ADF9972FCC42E40FB2B90F0F294ABC273BFD546B7921C447025004CF3AE9EE03D6FA7EB2DC32E358882543B73D0FC3D520D209687F25936D0D8997097BCC6B3339279124803D21F618A8BBB71AFAAD7EBB';\" | openssl rsautl -decrypt -oaep -inkey \"C:\\temp\\TESTE_CRIPTO\\RSA\\myPrivkey.pem";              // O comando a executar
-            
-            
-            string salvarComo = "c:\\temp\\meuArquivo1.txt";  // Nome do arquivo a ser salvo a saída
-            string saida = ExecutarComandoCMD(CMD); // Executa o comando
 
-            if (!File.Exists(salvarComo))
-            {         // Se o arquivo NÃO existir
-                File.Create(salvarComo).Dispose();
-                using (TextWriter tw = new StreamWriter(salvarComo))
-                {
-                    tw.WriteLine(saida);
-                }
-            }
-            Console.WriteLine(string.Format("O comando {0} foi executado e a saída foi salva no arquivo {1}", CMD, salvarComo));
+            #region abrir working key
+            //string CMD = "perl -e \" binmode *STDOUT; print pack 'H*','8C65E00F2D0B62C7702530CA0FBEB455C41525A31BFF15F132648D82674F121678648DBE13994FA0E3C569162B30B518CFB9F5E1FA02BEF11C49D5C4F61C60DC0A4C3900D671BD2F1EA34E77C2C6B94C771213556A06E79426514231D0C397BB0352368635672EDDC4595835E3E771E03DE99F668677C65028F204F7C9CB55B4B2EA44AE77C22BCF17DFCD9D9B1B597A9F24C6DAD52F088B2CFF27C7056E2E7360EE7D98ED32EF058B5636BCC80DF5ADF9972FCC42E40FB2B90F0F294ABC273BFD546B7921C447025004CF3AE9EE03D6FA7EB2DC32E358882543B73D0FC3D520D209687F25936D0D8997097BCC6B3339279124803D21F618A8BBB71AFAAD7EBB';\" | openssl rsautl -decrypt -oaep -inkey \"C:\\temp\\TESTE_CRIPTO\\RSA\\myPrivkey.pem";              // O comando a executar
+            
+            
+            //string salvarComo = "c:\\temp\\meuArquivo1.txt";  // Nome do arquivo a ser salvo a saída
+            //string saida = ExecutarComandoCMD(CMD); // Executa o comando
+
+            //if (!File.Exists(salvarComo))
+            //{         // Se o arquivo NÃO existir
+            //    File.Create(salvarComo).Dispose();
+            //    using (TextWriter tw = new StreamWriter(salvarComo))
+            //    {
+            //        tw.WriteLine(saida);
+            //    }
+            //}
+            //Console.WriteLine(string.Format("O comando {0} foi executado e a saída foi salva no arquivo {1}", CMD, salvarComo));
+            //Console.ReadLine();
+            #endregion
+
+            #region executa criptografia
+            var text = "9A02341";
+ 
+            //var encryptedText = EncryptPlainTextToCipherText(text);
+            var encryptedText = "9A7DA532324509A3";
+            var decryptedText = DecryptCipherTextToPlainText(encryptedText);
+ 
+            Console.WriteLine("Passed Text = " + text);
+            //Console.WriteLine("EncryptedText = " + encryptedText);
+            Console.WriteLine("DecryptedText = " + decryptedText);
+ 
             Console.ReadLine();
+            #endregion
 
+            //byte[] securityKeyArray = objMD5CryptoService.ComputeHash(UTF8Encoding.UTF8.GetBytes(_securityKey));
+        }
 
+        static string EncryptOrDecrypt(string text, string key)
+        {
+            var result = new StringBuilder();
 
+            for (int c = 0; c < text.Length; c++)
+                result.Append((char)((uint)text[c] ^ (uint)key[c % key.Length]));
+
+            return result.ToString();
         }
 
         public static string ExecutarComandoCMD(string ComandoCMD)
@@ -91,5 +115,121 @@ namespace ConsoleApplication1
                 return saida;
             }
         }
+
+        public static string Encrypt(string input, string key)
+        {
+            byte[] inputArray = UTF8Encoding.UTF8.GetBytes(input);
+            TripleDESCryptoServiceProvider tripleDES = new TripleDESCryptoServiceProvider();
+            tripleDES.Key = UTF8Encoding.UTF8.GetBytes(key);
+            tripleDES.Mode = CipherMode.ECB;
+            tripleDES.Padding = PaddingMode.None;
+            ICryptoTransform cTransform = tripleDES.CreateEncryptor();
+            byte[] resultArray = cTransform.TransformFinalBlock(inputArray, 0, inputArray.Length);
+            tripleDES.Clear();
+            return Convert.ToBase64String(resultArray, 0, resultArray.Length);
+        }
+
+        public static string Decrypt(string input, string key)
+        {
+            byte[] inputArray = Convert.FromBase64String(input);
+            TripleDESCryptoServiceProvider tripleDES = new TripleDESCryptoServiceProvider();
+            tripleDES.Key = UTF8Encoding.UTF8.GetBytes(key);
+            tripleDES.Mode = CipherMode.ECB;
+            tripleDES.Padding = PaddingMode.PKCS7;
+            ICryptoTransform cTransform = tripleDES.CreateDecryptor();
+            byte[] resultArray = cTransform.TransformFinalBlock(inputArray, 0, inputArray.Length);
+            tripleDES.Clear();
+            return UTF8Encoding.UTF8.GetString(resultArray);
+        }
+
+
+        /// <summary>
+        /// This method is used to convert the plain text to Encrypted/Un-Readable Text format.
+        /// </summary>
+        /// <param name="PlainText">Plain Text to Encrypt before transferring over the network.</param>
+        /// <returns>Cipher Text</returns>
+        private const string _securityKey = "BA73F294584334BA";
+        public static string EncryptPlainTextToCipherText(string PlainText)
+        {
+            
+            //Getting the bytes of Input String.
+            byte[] toEncryptedArray = UTF8Encoding.UTF8.GetBytes(PlainText);
+
+            MD5CryptoServiceProvider objMD5CryptoService = new MD5CryptoServiceProvider();
+
+            //Gettting the bytes from the Security Key and Passing it to compute the Corresponding Hash Value.
+            byte[] securityKeyArray = objMD5CryptoService.ComputeHash(UTF8Encoding.UTF8.GetBytes(_securityKey));
+
+            //De-allocatinng the memory after doing the Job.
+            objMD5CryptoService.Clear();
+            
+            var objTripleDESCryptoService = new TripleDESCryptoServiceProvider();
+
+            //Assigning the Security key to the TripleDES Service Provider.
+            objTripleDESCryptoService.Key = securityKeyArray;
+
+            //Mode of the Crypto service is Electronic Code Book.
+            objTripleDESCryptoService.Mode = CipherMode.ECB;
+
+            //Padding Mode is PKCS7 if there is any extra byte is added.
+            objTripleDESCryptoService.Padding = PaddingMode.None;
+
+            var objCrytpoTransform = objTripleDESCryptoService.CreateEncryptor();
+
+            //Transform the bytes array to resultArray
+            byte[] resultArray = objCrytpoTransform.TransformFinalBlock(toEncryptedArray, 0, toEncryptedArray.Length);
+
+            //Releasing the Memory Occupied by TripleDES Service Provider for Encryption.
+            objTripleDESCryptoService.Clear();
+
+            //Convert and return the encrypted data/byte into string format.
+            return Convert.ToBase64String(resultArray, 0, resultArray.Length);
+
+
+
+        }
+
+        public static string DecryptCipherTextToPlainText(string CipherText)
+        {
+            
+            byte[] toEncryptArray = Convert.ToBase64String(CipherText);
+           
+            MD5CryptoServiceProvider objMD5CryptoService = new MD5CryptoServiceProvider();
+
+            //Gettting the bytes from the Security Key and Passing it to compute the Corresponding Hash Value.
+            byte[] securityKeyArray = objMD5CryptoService.ComputeHash(UTF8Encoding.UTF8.GetBytes(_securityKey));
+
+            //De-allocatinng the memory after doing the Job.
+            objMD5CryptoService.Clear();
+
+            var objTripleDESCryptoService = new TripleDESCryptoServiceProvider();
+
+            //Assigning the Security key to the TripleDES Service Provider.
+            objTripleDESCryptoService.Key = securityKeyArray;
+
+            objTripleDESCryptoService.KeySize = 192;
+
+            //Mode of the Crypto service is Electronic Code Book.
+            objTripleDESCryptoService.Mode = CipherMode.ECB;
+
+            //Padding Mode is PKCS7 if there is any extra byte is added.
+            objTripleDESCryptoService.Padding = PaddingMode.None;
+
+            byte[] DataToDecrypt = Convert.FromBase64String(CipherText);
+
+            var objCrytpoTransform = objTripleDESCryptoService.CreateDecryptor();
+
+            //Transform the bytes array to resultArray
+            byte[] resultArray = objCrytpoTransform.TransformFinalBlock(DataToDecrypt, 0, DataToDecrypt.Length);
+
+            //Releasing the Memory Occupied by TripleDES Service Provider for Decryption.          
+            objTripleDESCryptoService.Clear();
+
+            //Convert and return the decrypted data/byte into string format.
+            return UTF8Encoding.UTF8.GetString(resultArray);
+        }
+
+
+
     }
 }

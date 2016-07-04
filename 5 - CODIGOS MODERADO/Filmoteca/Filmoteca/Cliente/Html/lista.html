@@ -1,0 +1,16 @@
+﻿<div ng-controller="listaController">
+    <table class="table">
+        <tr>
+            <th>Título</th>
+        </tr>
+        <tr ng-repeat="filme in filmes">
+            <td>{{filme.Titulo}}</td>
+            <td>
+                <a class="btn btn-primary" href="#/detalhes/{{filme.Id}}">Detalhes</a>
+                <button class="btn btn-danger" ng-click="deleta(filme)">Deletar</button>
+            </td>
+        </tr>
+    </table>
+   <button class="btn btn-success" ng-click="criar()">Novo Filme</button>
+   <div ng-include="'/Cliente/Html/edita.html'"></div>
+</div>

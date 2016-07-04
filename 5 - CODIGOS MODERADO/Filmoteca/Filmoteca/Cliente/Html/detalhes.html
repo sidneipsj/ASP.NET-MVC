@@ -1,0 +1,14 @@
+﻿<div ng-controller="detalhesController">
+    <h2>
+       Filme :  {{filme.Titulo}}
+    </h2>
+    <div>
+       <h3> Lançamento em : {{filme.AnoLancamento}} </h3>
+    </div>
+    <div>
+       <h3>{{filme.Duracao}} minutos de duração.</h3>
+    </div>
+    <a class="btn btn-primary" ng-click="editar()">Editar</>
+    <a class="btn btn-success" href="#/">Retorna</a>
+    <div ng-include="'/Cliente/Html/edita.html'"></div>
+</div>

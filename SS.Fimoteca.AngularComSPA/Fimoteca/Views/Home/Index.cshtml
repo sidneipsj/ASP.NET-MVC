@@ -1,0 +1,25 @@
+﻿<div class="jumbotron">
+    <h4>Macoratti .net</h4>
+</div>
+<div ng-app="filmoteca" ng-controller="listaController">
+    <table class="table">
+        <tr>
+            <th>Título</th>
+            <th>Ano de Lançamento</th>
+            <th>Duração (min.)</th>
+        </tr>
+        <tr ng-repeat="filme in filmes">
+            <td>{{filme.Titulo}}</td>
+            <td>{{filme.AnoLancamento}}</td>
+            <td>{{filme.Duracao}}</td>
+        </tr>
+    </table>
+</div>
+@section scripts
+{
+    
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/AngularApp/js/filmoteca.js"></script>
+    <script src="~/AngularApp/js/listaController.js"></script>
+    
+}
