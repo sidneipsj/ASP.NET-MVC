@@ -20,17 +20,29 @@ function Mensagem(stringCss, mensagem) {
 }
 
 function Cadastrar() {
+    //com a função serialize(), pegamos todo o objeto do formulario e transformamos em uma string em serie
     var dadosSerializados = $('#formDados').serialize();
+
+    //inicializamos o AJAX
+    //por padrao ele recebe JSON portanto nao é preciso informar
     $.ajax({
+        //informamos o tipo de solicitacao (GET, POST, PUT, DELETE)
         type: "POST",
-        url: "App/Cadastrar",
+        //url para onde enviaremos os dados
+        url: "/App/Cadastrar",
+        //os parametros que serao enviados por parametro, no nosso caso é o objeto PessoaModel que temos no formulario
+        //a partir dos names, ele reconhece que é daquele objeto.
         data: dadosSerializados,
         success: function () {
-            Mensagem("success", "Cadastrado com Sucesso!");
+            //caso tudo de certo, exibe a mensagem
+            alert("Cadastrado com Sucesso!");
+            //chamamos o metodo de listagem dos objetos
+            //Listar();
         },
         error: function () {
-            Mensagem("danger", "Erro ao cadastrar!");
+            alert("Error!");
         }
 
     });
+
 }

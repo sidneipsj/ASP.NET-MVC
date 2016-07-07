@@ -41,7 +41,7 @@ namespace WindowsFormsApplication1
 
         public static string Decryption(string CypherText, string key)
         {
-            byte[] b = Convert.FromBase64String(CypherText);
+            byte[] b = System.Text.UTF8Encoding.UTF8.GetBytes(CypherText);
             TripleDES des = CreateDES(key);
             ICryptoTransform ct = des.CreateDecryptor();
             byte[] output = ct.TransformFinalBlock(b, 0, b.Length);

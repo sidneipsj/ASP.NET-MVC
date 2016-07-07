@@ -8,6 +8,7 @@ namespace ConsoleApplication1
 {
     class Program
     {
+        private const string _securityKey = "BA73F294584334BA";
         static void Main(string[] args)
         {
             #region comentado
@@ -57,13 +58,13 @@ namespace ConsoleApplication1
             #endregion
 
             #region executa criptografia
-            var text = "9A02341";
+            //var text = "9A02341";
+            var text = "0A12B7152BF38C7C";
+            var encryptedText = Encrypt(text,_securityKey);
+
+            var decryptedText = Decrypt("MjI1MWE5ZWZlZDc2ZjRkMQ==", _securityKey);
  
-            //var encryptedText = EncryptPlainTextToCipherText(text);
-            var encryptedText = "9A7DA532324509A3";
-            var decryptedText = DecryptCipherTextToPlainText(encryptedText);
- 
-            Console.WriteLine("Passed Text = " + text);
+            //Console.WriteLine("Passed Text = " + text);
             //Console.WriteLine("EncryptedText = " + encryptedText);
             Console.WriteLine("DecryptedText = " + decryptedText);
  
@@ -135,7 +136,7 @@ namespace ConsoleApplication1
             TripleDESCryptoServiceProvider tripleDES = new TripleDESCryptoServiceProvider();
             tripleDES.Key = UTF8Encoding.UTF8.GetBytes(key);
             tripleDES.Mode = CipherMode.ECB;
-            tripleDES.Padding = PaddingMode.PKCS7;
+            tripleDES.Padding = PaddingMode.None;
             ICryptoTransform cTransform = tripleDES.CreateDecryptor();
             byte[] resultArray = cTransform.TransformFinalBlock(inputArray, 0, inputArray.Length);
             tripleDES.Clear();
@@ -148,7 +149,7 @@ namespace ConsoleApplication1
         /// </summary>
         /// <param name="PlainText">Plain Text to Encrypt before transferring over the network.</param>
         /// <returns>Cipher Text</returns>
-        private const string _securityKey = "BA73F294584334BA";
+        
         public static string EncryptPlainTextToCipherText(string PlainText)
         {
             
@@ -189,45 +190,68 @@ namespace ConsoleApplication1
 
         }
 
-        public static string DecryptCipherTextToPlainText(string CipherText)
+        public static string DecryptCipherTextToPlainText(string textoCriptografado)
         {
+
+            TripleDESCryptoServiceProvider desCryptoProvider = new TripleDESCryptoServiceProvider();
+            MD5CryptoServiceProvider hashMD5Provider = new MD5CryptoServiceProvider();
+
+            byte[] byteHash;
+            byte[] byteBuff;
+
+            byteHash = hashMD5Provider.ComputeHash(Encoding.UTF8.GetBytes(_securityKey));
+            desCryptoProvider.Key = byteHash;
+            desCryptoProvider.Mode = CipherMode.ECB; //CBC, CFB
+            byteBuff = Convert.FromBase64String(textoCriptografado);
+
+            string plaintext = Encoding.UTF8.GetString(desCryptoProvider.CreateDecryptor().TransformFinalBlock(byteBuff, 0, byteBuff.Length));
+            return plaintext;
+
             
-            byte[] toEncryptArray = Convert.ToBase64String(CipherText);
-           
-            MD5CryptoServiceProvider objMD5CryptoService = new MD5CryptoServiceProvider();
-
-            //Gettting the bytes from the Security Key and Passing it to compute the Corresponding Hash Value.
-            byte[] securityKeyArray = objMD5CryptoService.ComputeHash(UTF8Encoding.UTF8.GetBytes(_securityKey));
-
-            //De-allocatinng the memory after doing the Job.
-            objMD5CryptoService.Clear();
-
-            var objTripleDESCryptoService = new TripleDESCryptoServiceProvider();
-
-            //Assigning the Security key to the TripleDES Service Provider.
-            objTripleDESCryptoService.Key = securityKeyArray;
-
-            objTripleDESCryptoService.KeySize = 192;
-
-            //Mode of the Crypto service is Electronic Code Book.
-            objTripleDESCryptoService.Mode = CipherMode.ECB;
-
-            //Padding Mode is PKCS7 if there is any extra byte is added.
-            objTripleDESCryptoService.Padding = PaddingMode.None;
-
-            byte[] DataToDecrypt = Convert.FromBase64String(CipherText);
-
-            var objCrytpoTransform = objTripleDESCryptoService.CreateDecryptor();
-
-            //Transform the bytes array to resultArray
-            byte[] resultArray = objCrytpoTransform.TransformFinalBlock(DataToDecrypt, 0, DataToDecrypt.Length);
-
-            //Releasing the Memory Occupied by TripleDES Service Provider for Decryption.          
-            objTripleDESCryptoService.Clear();
-
-            //Convert and return the decrypted data/byte into string format.
-            return UTF8Encoding.UTF8.GetString(resultArray);
         }
+
+
+
+
+
+        public static string DecryptCipherTextToPlainText2(string textoCriptografado)
+        {
+            try
+            {
+                TripleDESCryptoServiceProvider des = new TripleDESCryptoServiceProvider();
+                des.Mode = CipherMode.ECB;
+
+                byte[] ciphertext = Convert.FromBase64String(textoCriptografado);
+
+                byte[] key = Encoding.ASCII.GetBytes(_securityKey);
+
+                byte[] IV = Encoding.ASCII.GetBytes("init vec");
+
+                des.Key = key;
+                des.IV = IV;
+
+                ICryptoTransform Decryptor = des.CreateDecryptor(des.Key, des.IV);
+
+                MemoryStream ms = new MemoryStream();
+                ms.Write(ciphertext, 0, ciphertext.Length);
+                CryptoStream cs = new CryptoStream(ms, Decryptor, CryptoStreamMode.Write);
+
+                byte[] by_plaintext = ms.ToArray();
+                string plaintext = Encoding.ASCII.GetString(by_plaintext);// Convert.ToBase64String( by_plaintext );
+
+                //cs.Close();
+
+                return plaintext;
+
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+                Console.WriteLine(e.Message);
+                Console.ReadKey();
+            }
+        }
+
 
 
 
