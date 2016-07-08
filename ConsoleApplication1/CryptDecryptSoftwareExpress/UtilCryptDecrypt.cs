@@ -1,39 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication2
+namespace CryptDecryptSoftwareExpress
 {
-    class Program
+    public class UtilCryptDecrypt
     {
-        //string K1 = "0x0123456789ABCDEF";
-        //string K2 = "0xFEDCBA9876543210";
-        //private static string _securityKey = "BA73F294584334BA";
-        //private static int Num;
-
-        static void Main(string[] args)
-        {
-
-
-            byte[] securityKeyArrayK1 = StringToByteArray("BA73F294584334BA");
-            byte[] securityKeyArrayK2 = StringToByteArray("6B7A4C31927519F1");
-            byte[] securityKeyArrayK3 = StringToByteArray("BA73F294584334BA");
-
-            var cipherPinBlock = CipherPinBlock(securityKeyArrayK1, securityKeyArrayK2, securityKeyArrayK3, "0A12B7152BF38C7C");
-            var decryptPinBlock = DecryptPinBlock(securityKeyArrayK1, securityKeyArrayK2, securityKeyArrayK3, cipherPinBlock);
-
-
-
-            //Exibe no console
-            Console.WriteLine("Cripher PinBlock: " + cipherPinBlock + "\n" + "Decypt PinBlock: " + decryptPinBlock);
-            Console.ReadKey();
-
-        }
-
         /// <summary>
         /// Criptografa o pinblock aberto, na verdade esse processo já é feito pela software express
         /// o pinblock já é passado para a autorizadora criptografado o método foi criado apenas a título 
@@ -44,7 +19,7 @@ namespace ConsoleApplication2
         /// <param name="securityKeyArrayK3">Terceira parte da chave K3 no formato array de bytes</param>
         /// <param name="openPinBlock">Pinblock aberto passado pelo TEF</param>
         /// <returns></returns>
-        private static string CipherPinBlock(byte[] securityKeyArrayK1, byte[] securityKeyArrayK2, byte[] securityKeyArrayK3, string openPinBlock)
+        public static string CipherPinBlock(byte[] securityKeyArrayK1, byte[] securityKeyArrayK2, byte[] securityKeyArrayK3, string openPinBlock)
         {
             //Convertendo o pinblock aberto em um array de bytes
             byte[] toEncryptedArray1 = StringToByteArray(openPinBlock);
@@ -77,7 +52,6 @@ namespace ConsoleApplication2
             return DES3;
         }
 
-
         /// <summary>
         /// Descriptograda o pinblock enviado pelo TEF após esse processo é necessário aplicar o operador XOR
         /// entre o pinblock descriptogradado e o partial pan para obter informações como PIN e etc.
@@ -87,7 +61,7 @@ namespace ConsoleApplication2
         /// <param name="securityKeyArrayK3">Terceira parte da chave K3 no formato array de bytes</param>
         /// <param name="encriptedPinBlock">PinBlock encriptado passado pelo TEF</param>
         /// <returns>String contendo o pinblock descriptografado</returns>
-        private static string DecryptPinBlock(byte[] securityKeyArrayK1, byte[] securityKeyArrayK2, byte[] securityKeyArrayK3, string encriptedPinBlock)
+        public static string DecryptPinBlock(byte[] securityKeyArrayK1, byte[] securityKeyArrayK2, byte[] securityKeyArrayK3, string encriptedPinBlock)
         {
             //Convertendo o pinblock aberto em um array de bytes
             byte[] toEncryptedArray1 = StringToByteArray(encriptedPinBlock);
@@ -137,8 +111,7 @@ namespace ConsoleApplication2
                 bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
             return bytes;
         }
-
-
+        
         //public static byte[] ConvertHexStringToByteArray(String hexString)
         //{
         //    int TotalNumberOfChars = hexString.Length;

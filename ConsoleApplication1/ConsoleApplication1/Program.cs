@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
+using CryptDecryptSoftwareExpress;
 
 namespace ConsoleApplication1
 {
@@ -57,21 +58,47 @@ namespace ConsoleApplication1
             //Console.ReadLine();
             #endregion
 
-            #region executa criptografia
-            //var text = "9A02341";
-            var text = "0A12B7152BF38C7C";
-            var encryptedText = Encrypt(text,_securityKey);
+            byte[] securityKeyArrayK1 = UtilCryptDecrypt.StringToByteArray("BA73F294584334BA");
+            byte[] securityKeyArrayK2 = UtilCryptDecrypt.StringToByteArray("6B7A4C31927519F1");
+            byte[] securityKeyArrayK3 = UtilCryptDecrypt.StringToByteArray("BA73F294584334BA");
+            var pinblock = UtilCryptDecrypt.DecryptPinBlock(securityKeyArrayK1, securityKeyArrayK2, securityKeyArrayK3, "2251A9EFED76F4D1");
 
-            var decryptedText = Decrypt("MjI1MWE5ZWZlZDc2ZjRkMQ==", _securityKey);
- 
-            //Console.WriteLine("Passed Text = " + text);
-            //Console.WriteLine("EncryptedText = " + encryptedText);
-            Console.WriteLine("DecryptedText = " + decryptedText);
- 
-            Console.ReadLine();
-            #endregion
+            //Console.WriteLine(pinblock);
+            //Console.ReadKey();
 
-            //byte[] securityKeyArray = objMD5CryptoService.ComputeHash(UTF8Encoding.UTF8.GetBytes(_securityKey));
+
+            byte[] pinblockConvertedToArray = UtilCryptDecrypt.StringToByteArray(pinblock);
+            byte[] panpartialConvertedToArray = UtilCryptDecrypt.StringToByteArray("0000834353637383");
+
+            var result = XOR(pinblockConvertedToArray, panpartialConvertedToArray);
+          
+            var resultConvertido = UtilCryptDecrypt.ConvertByteArrayToString(result);
+
+
+
+
+            //#region executa criptografia
+            ////var text = "9A02341";
+            //var text = "0A12B7152BF38C7C";
+            //var encryptedText = Encrypt(text,_securityKey);
+
+            //var decryptedText = Decrypt("MjI1MWE5ZWZlZDc2ZjRkMQ==", _securityKey);
+ 
+            ////Console.WriteLine("Passed Text = " + text);
+            ////Console.WriteLine("EncryptedText = " + encryptedText);
+            //Console.WriteLine("DecryptedText = " + decryptedText);
+ 
+            //Console.ReadLine();
+            //#endregion
+
+            ////byte[] securityKeyArray = objMD5CryptoService.ComputeHash(UTF8Encoding.UTF8.GetBytes(_securityKey));
+        }
+
+        public static byte[] XOR(byte[] buffer1, byte[] buffer2)
+        {
+            for (int i = 0; i < buffer1.Length; i++)
+                buffer1[i] ^= buffer2[i];
+            return buffer1;
         }
 
         static string EncryptOrDecrypt(string text, string key)
