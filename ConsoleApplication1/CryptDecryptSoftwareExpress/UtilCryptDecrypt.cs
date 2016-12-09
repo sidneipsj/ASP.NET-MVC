@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CryptDecryptSoftwareExpress
 {
@@ -167,8 +163,12 @@ namespace CryptDecryptSoftwareExpress
             return resultArray;
         }
 
-
-
+        public static byte[] XOR(byte[] buffer1, byte[] buffer2)
+        {
+            for (int i = 0; i < buffer1.Length; i++)
+                buffer1[i] ^= buffer2[i];
+            return buffer1;
+        }
 
     }
 }

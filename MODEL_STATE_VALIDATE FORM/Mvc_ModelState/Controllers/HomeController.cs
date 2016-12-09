@@ -29,6 +29,7 @@ namespace Mvc_ModelState.Controllers
             {
                 return View(model);
             }
+            
             return RedirectToAction("Index");
         }
     }

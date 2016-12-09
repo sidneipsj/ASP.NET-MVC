@@ -94,13 +94,6 @@ namespace ConsoleApplication1
             ////byte[] securityKeyArray = objMD5CryptoService.ComputeHash(UTF8Encoding.UTF8.GetBytes(_securityKey));
         }
 
-        public static byte[] XOR(byte[] buffer1, byte[] buffer2)
-        {
-            for (int i = 0; i < buffer1.Length; i++)
-                buffer1[i] ^= buffer2[i];
-            return buffer1;
-        }
-
         static string EncryptOrDecrypt(string text, string key)
         {
             var result = new StringBuilder();
